@@ -23,9 +23,9 @@ export const botConfig = {
     // 5 = Competing
     activities: [
       {
-        name: " Leaxsmp.fznetwork.fun:25578  ", // required by Discord API, not shown in the client
-        state: "Leaxsmp.fznetwork.fun:25578 ",     // this is what people actually see
-        type: 2,               // Custom
+        name: "Leaxsmp.fznetwork.fun:25578", // required by Discord API, not shown in the client
+        state: "",     // this is what people actually see
+        type: 0,               // Custom
       },
     ],
   },
