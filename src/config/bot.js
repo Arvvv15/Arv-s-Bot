@@ -11,7 +11,7 @@ export const botConfig = {
   // - "invisible" = appears offline
   presence: {
     // Current online state shown on Discord.
-    status: "idle",
+    status: "online",
 
     // Activity lines shown under the bot name.
     // `type` number mapping from Discord:
@@ -23,8 +23,8 @@ export const botConfig = {
     // 5 = Competing
     activities: [
       {
-        name: "Leaxsmp.fznetwork.fun:25578", // required by Discord API, not shown in the client
-        state: "",     // this is what people actually see
+        name: "HAHAHA", // required by Discord API, not shown in the client
+        state: "YOU",     // this is what people actually see
         type: 3,               // Custom
       },
     ],
