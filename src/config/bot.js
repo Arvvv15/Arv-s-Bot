@@ -25,7 +25,7 @@ export const botConfig = {
       {
         name: "Leaxsmp.fznetwork.fun:25578", // required by Discord API, not shown in the client
         state: "",     // this is what people actually see
-        type: 5,               // Custom
+        type: 3,               // Custom
       },
     ],
   },
