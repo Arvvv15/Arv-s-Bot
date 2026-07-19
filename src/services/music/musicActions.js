@@ -187,9 +187,8 @@ export async function playQuery(client, interaction, query) {
         const queuePosition = player.queue.length;
 
         if (willPlayNow) {
-            player.play();
-        }
-
+    await player.play();
+}
         return {
             embed: successEmbed(
                 willPlayNow ? 'Now Playing' : 'Track Added',
