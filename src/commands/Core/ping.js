@@ -49,14 +49,21 @@ export default {
         try {
             const start = performance.now();
 
-await InteractionHelper.safeEditReply(interaction, {
-    content: "Pinging...",
-});
-
-const latency = Math.round(performance.now() - start);
 const apiLatency = Math.max(0, Math.round(interaction.client.ws.ping));
+const processingTime = Math.round(performance.now() - start);
 
-logger.info(`execute - processing: ${latency}ms, apiLatency: ${apiLatency}ms`);
+const uptime = interaction.client.uptime;
+
+const days = Math.floor(uptime / 86400000);
+const hours = Math.floor((uptime % 86400000) / 3600000);
+const minutes = Math.floor((uptime % 3600000) / 60000);
+
+const uptimeString =
+    days > 0
+        ? `${days}d ${hours}h ${minutes}m`
+        : `${hours}h ${minutes}m`;
+
+logger.info(`Ping | Processing: ${processingTime}ms | API: ${apiLatency}ms`);
 
             const embed = createEmbed({ title: "Pong!", description: null }).addFields(
                 { name: "Bot Latency", value: `${latency}ms`, inline: true },
