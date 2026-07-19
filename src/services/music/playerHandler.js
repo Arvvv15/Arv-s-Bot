@@ -235,9 +235,13 @@ export function setupPlayerHandler(client) {
     });
 
     client.riffy.on('trackStuck', async (player, track, payload) => {
-        logger.warn(`Track stuck in ${player.guildId} for "${track?.info?.title}" (${payload?.thresholdMs}ms)`);
-    });
-}
+    logger.warn(
+        `Track stuck in ${player.guildId}
+Title: ${track?.info?.title}
+Threshold: ${payload?.thresholdMs}ms
+Node: ${player.node?.name}`
+    );
+});
 
 export async function shutdownMusic(client) {
     if (!client.riffy?.players) {
