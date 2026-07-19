@@ -1,12 +1,12 @@
 [
   {
-    "host": "lavalinkv4.serenetia.com",
+    "host": "lavalink.jirayu.net",
     "port": 443,
-    "password": "https://seretia.link/discord",
+    "password": "youshallnotpass",
     "secure": true,
-    "name": "Serenetia"
-  },
-  {
+    "name": "Jirayu"
+  }
+]
     "host": "lavalink.jirayu.net",
     "port": 443,
     "password": "youshallnotpass",
