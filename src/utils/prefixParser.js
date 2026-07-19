@@ -148,8 +148,7 @@ export function mapArgumentsToOptions(args, commandData) {
   for (let i = 0; i < optionDefs.length; i++) {
     const optionDef = optionDefs[i];
 
-    // If this is the last STRING option, capture the rest of the message.
-    if (optionDef.type === 3 && i === optionDefs.length - 1) {
+    if (optionDef.type === 3) {
         options[optionDef.name] = currentArgs.slice(i).join(' ');
         break;
     }
