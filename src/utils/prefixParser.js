@@ -145,13 +145,17 @@ export function mapArgumentsToOptions(args, commandData) {
     optionDefs = cmdData.options.filter((opt) => opt.type !== 1 && opt.type !== 2);
   }
 
-  for (let i = 0; i < Math.min(currentArgs.length, optionDefs.length); i++) {
+  for (let i = 0; i < optionDefs.length; i++) {
     const optionDef = optionDefs[i];
-    const value = currentArgs[i];
-    
-    options[optionDef.name] = value;
-  }
 
+    // If this is the last STRING option, capture the rest of the message.
+    if (optionDef.type === 3 && i === optionDefs.length - 1) {
+        options[optionDef.name] = currentArgs.slice(i).join(' ');
+        break;
+    }
+
+    options[optionDef.name] = currentArgs[i];
+}
   const missing = [];
   if (subcommandName || (!hasSubcommands && !subcommandGroup)) {
     for (const opt of optionDefs) {
