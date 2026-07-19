@@ -137,13 +137,12 @@ export function sanitizeMarkdown(text) {
 
 export function sanitizeInput(input, maxLength = 2000) {
   if (typeof input !== 'string') return '';
-  
+
   return input
     .trim()
     .substring(0, maxLength)
-    .replace(/[\x00-\x1F\x7F]/g, '');
+    .replace(/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/g, '');
 }
-
 export function sanitizeMention(mention) {
   const validId = mention.replace(/[<@!&#]/g, '');
   return /^\d+$/.test(validId) ? validId : null;
