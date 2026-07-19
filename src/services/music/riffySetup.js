@@ -53,5 +53,22 @@ export function initRiffyAfterReady(client) {
     if (client.riffy && client.user?.id) {
         client.riffy.init(client.user.id);
         logger.info('Riffy voice connection manager initialized.');
+
+        setTimeout(() => {
+            console.log("========== LAVALINK DEBUG ==========");
+
+            console.log("Configured nodes:", lavalinkConfig.nodes);
+
+            for (const node of client.riffy.nodes.values()) {
+                console.log({
+                    name: node.name,
+                    connected: node.connected,
+                    host: node.host,
+                    port: node.port,
+                });
+            }
+
+            console.log("====================================");
+        }, 5000);
     }
 }
