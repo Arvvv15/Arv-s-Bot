@@ -243,6 +243,8 @@ Node: ${player.node?.name}`
     );
 });
 
+}
+
 export async function shutdownMusic(client) {
     if (!client.riffy?.players) {
         return;
