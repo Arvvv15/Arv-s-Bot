@@ -158,7 +158,7 @@ export function setupPlayerHandler(client) {
             clearUpdateInterval(guildData);
 
             if (guildData.autoplay) {
-                player.autoplay(player);
+                await player.autoplay(player);
                 return;
             }
 
