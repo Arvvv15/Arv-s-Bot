@@ -14,6 +14,20 @@ export function initializeMusic(client) {
     }
 
     client.riffy = new Riffy(client, lavalinkConfig.nodes, {
+    send: (payload) => {
+        const guild = client.guilds.cache.get(payload.d.guild_id);
+        if (guild) guild.shard.send(payload);
+    },
+
+    defaultSearchPlatform: lavalinkConfig.defaultSearchPlatform,
+    restVersion: lavalinkConfig.restVersion,
+
+    nodePreference: "leastLoad",
+
+    bypassChecks: {
+        nodeFetchInfo: true,
+    },
+});
         send: (payload) => {
             const guild = client.guilds.cache.get(payload.d.guild_id);
             if (guild) {
