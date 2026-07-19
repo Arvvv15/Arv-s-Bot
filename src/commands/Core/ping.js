@@ -47,15 +47,16 @@ export default {
         }
 
         try {
-            await InteractionHelper.safeEditReply(interaction, {
-                content: "Pinging...",
-            });
+            const start = performance.now();
 
-            const startTime = interaction._commandStartTime || interaction.createdTimestamp;
-            logger.info(`execute - using startTime: ${startTime}, type: ${interaction._commandStartTime ? 'prefix' : 'slash'}`);
-            const latency = Math.max(0, Date.now() - startTime);
-            const apiLatency = Math.max(0, Math.round(interaction.client.ws.ping));
-            logger.info(`execute - calculated latency: ${latency}ms, apiLatency: ${apiLatency}ms`);
+await InteractionHelper.safeEditReply(interaction, {
+    content: "Pinging...",
+});
+
+const latency = Math.round(performance.now() - start);
+const apiLatency = Math.max(0, Math.round(interaction.client.ws.ping));
+
+logger.info(`execute - processing: ${latency}ms, apiLatency: ${apiLatency}ms`);
 
             const embed = createEmbed({ title: "Pong!", description: null }).addFields(
                 { name: "Bot Latency", value: `${latency}ms`, inline: true },
