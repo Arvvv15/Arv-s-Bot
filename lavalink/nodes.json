@@ -5,13 +5,6 @@
     "password": "youshallnotpass",
     "secure": true,
     "name": "Jirayu"
-  }
-]
-    "host": "lavalink.jirayu.net",
-    "port": 443,
-    "password": "youshallnotpass",
-    "secure": true,
-    "name": "Jirayu"
   },
   {
     "host": "lava-v4.millohost.my.id",
