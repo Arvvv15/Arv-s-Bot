@@ -66,6 +66,7 @@ export default {
         }
 
         const rawMessage = interaction.options.getString('message');
+console.log("RAW MESSAGE:", JSON.stringify(rawMessage));
         const message = sanitizeInput(rawMessage, 2000);
 
         if (!message) {
