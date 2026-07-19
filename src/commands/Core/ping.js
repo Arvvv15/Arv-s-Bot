@@ -65,10 +65,25 @@ const uptimeString =
 
 logger.info(`Ping | Processing: ${processingTime}ms | API: ${apiLatency}ms`);
 
-            const embed = createEmbed({ title: "Pong!", description: null }).addFields(
-                { name: "Bot Latency", value: `${latency}ms`, inline: true },
-                { name: "API Latency", value: `${apiLatency}ms`, inline: true },
-            );
+            const embed = createEmbed({
+    title: "🏓 Pong!"
+}).addFields(
+    {
+        name: "⚡ Processing",
+        value: `\`${processingTime}ms\``,
+        inline: true
+    },
+    {
+        name: "🌐 API",
+        value: `\`${apiLatency}ms\``,
+        inline: true
+    },
+    {
+        name: "🖥️ Uptime",
+        value: `\`${uptimeString}\``,
+        inline: true
+    }
+);
 
             await InteractionHelper.safeEditReply(interaction, {
                 content: null,
